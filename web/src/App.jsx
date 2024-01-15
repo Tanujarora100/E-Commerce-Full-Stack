@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import { Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import {BrowserRouter} from "react-router-dom"
 // TODO: Implement features
 // - [JIRA-123] Dark Mode
 // - [JIRA-124] Sign Up and Log In Functionality
@@ -23,18 +24,21 @@ function App() {
   // TODO: Add state and logic for features
 
   return (
-    <Provider store={store}>
-      <div>
+    <BrowserRouter>
+      <Provider store={store}>
         <div>
-          <NavBar></NavBar>
-        </div>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/" element={<Cart></Cart>}></Route>
-        </Routes>
+          <div className=''>
+            <NavBar></NavBar>
+          </div>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
 
-      </div>
-    </Provider>
+            <Route path="/" element={<Cart></Cart>}></Route>
+          </Routes>
+
+        </div>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
